@@ -17,7 +17,7 @@ function createUser(name, email, password) {
 }
 
 function saveUserSession(user) {
-  console.log("saveUserSEssion", user);
+  // console.log("saveUserSEssion", user);
   const sid = crypto.randomBytes(18).toString("base64");
   return model.createSession(sid, { user });
 }
@@ -25,7 +25,8 @@ function saveUserSession(user) {
 function verifyUser(email, password) {
   //bcrypt compare current password to DB password
   return model.getUser(email).then((user) => {
-    bcrypt.compare(password, user.password).then((match) => {
+    console.log("user", user);
+    return bcrypt.compare(password, user.password).then((match) => {
       if (!match) {
         throw new Error("Password mismatch");
       } else {

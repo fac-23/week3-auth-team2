@@ -1,129 +1,159 @@
 @import url("https://fonts.googleapis.com/css2?family=Dongle:wght@300;400&display=swap");
 
 :root {
-	--darkcolor: #27474e;
-	--mediumcolor: #7d387d;
-	--lightcolor: #c45baa;
-	--textdark: rgb(39, 38, 39);
-	--textlight: whitesmoke;
-	font-size: 62.5%;
+  --darkcolor: #27474e;
+  --mediumcolor: #7d387d;
+  --lightcolor: #c45baa;
+  --textdark: rgb(39, 38, 39);
+  --textlight: whitesmoke;
+  font-size: 62.5%;
 }
 
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-	background-image: linear-gradient(
-		to top,
-		#a560a5,
-		#b57ab5,
-		#c595c5,
-		#d5afd5,
-		#e5cae5
-	);
-	background-size: cover;
-	background-repeat: no-repeat;
-	width: 100vw;
-	min-height: 100vh;
-	color: var(--textdark);
-	font-family: "Dongle", sans-serif;
-	font-size: 2.2rem;
+  background-image: linear-gradient(
+    to top,
+    #a560a5,
+    #b57ab5,
+    #c595c5,
+    #d5afd5,
+    #e5cae5
+  );
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  min-height: 100vh;
+  color: var(--textdark);
+  font-family: "Dongle", sans-serif;
+  font-size: 2.2rem;
 }
 
 .logo {
-	background-image: url("DEV.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-	width: 200px;
-	height: 200px;
-	border-radius: 50%;
+  background-image: url("DEV.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
 }
 
 .flex {
-	display: flex;
-	flex-direction: column;
-	text-align: center;
-	width: 60%;
-	margin: 0 auto;
-	gap: 10px;
-	align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  width: 60%;
+  margin: 0 auto;
+  gap: 10px;
+  align-items: center;
 }
 
 form[action="/newsfeed"] {
-	width: 100%;
+  width: 100%;
 }
 
 #news-feed-container {
-	width: 80%;
+  width: 80%;
+  margin-top: 50px;
 }
 
 form input {
-	width: 50%;
-	border: 1px solid var(--darkcolor);
-	border-radius: 5px;
-	outline: none;
-	background-color: transparent;
-	padding: 10px;
-	box-shadow: rgba(17, 12, 46, 0.15) 0px 15px 10px -15px;
+  width: 50%;
+  border: 1px solid var(--darkcolor);
+  border-radius: 5px;
+  outline: none;
+  background-color: transparent;
+  padding: 10px;
+  box-shadow: rgba(17, 12, 46, 0.15) 0px 15px 10px -15px;
 }
 
 form input:focus {
-	border: 1px solid var(--mediumcolor);
-	border-radius: 5px;
+  border: 1px solid var(--mediumcolor);
+  border-radius: 5px;
 }
 
-.btn {
-	border: transparent;
-	background-color: var(--mediumcolor);
-	padding: 10px;
-	border-radius: 10px;
-	color: var(--textlight);
-	font-family: inherit;
-	font-size: inherit;
-	width: 50%;
-	transition: background-color 400ms ease-in-out;
+.btn,
+#deleteItem {
+  border: transparent;
+  background-color: var(--mediumcolor);
+  padding: 10px;
+  border-radius: 10px;
+  color: var(--textlight);
+  font-family: inherit;
+  font-size: inherit;
+  width: 50%;
+  transition: background-color 400ms ease-in-out;
 }
 
-.btn:hover {
-	background-color: var(--lightcolor);
+.btn:hover,
+#deleteItem:hover {
+  background-color: var(--lightcolor);
+  cursor: pointer;
 }
 
 a {
-	text-decoration: none;
-	color: inherit;
+  text-decoration: none;
+  color: inherit;
 }
 
 .sr-only {
-	opacity: 0;
+  opacity: 0;
 }
 
 section {
-	padding: 40px 0;
+  padding: 40px 0;
 }
 
 ul {
-	list-style: none;
+  list-style: none;
 }
 
 .item-list {
-	display: grid;
-	width: 100%;
-	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-	gap: 1rem;
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
 }
 
 li {
-	border: 1px solid var(--darkcolor);
-	/* background-color: var(--mediumcolor); */
+  border: 1px solid var(--darkcolor);
+  /* background-color: var(--mediumcolor); */
 }
 
 h2.item-title {
-	color: var(--textlight);
+  color: var(--textlight);
 }
 
 p {
-	font-size: 2.5rem;
+  font-size: 2.5rem;
+}
+
+.far {
+  font-size: 1.5rem;
+  margin-left: 1.5rem;
+}
+
+#deleteItem {
+  /* font-size: 1.5rem;
+  padding: 2px;
+  border-radius: 5%; */
+  padding: 3px;
+  margin-bottom: 1.5rem;
+  width: 90%;
+}
+
+section {
+  padding: 10px;
+}
+
+.logout {
+  float: right;
+  padding: 5px;
+  margin: 5px;
+  width: 15%;
 }

@@ -1,7 +1,7 @@
 const auth = require("../auth.js");
 
 function get(request, response) {
-	const html = `<!DOCTYPE html>
+  const html = `<!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
@@ -43,29 +43,29 @@ function get(request, response) {
 	</body>
 </html>`;
 
-	response.send(html);
+  response.send(html);
 }
 
 function post(request, response) {
-	// collect user input from request body
-	const { name, email, password } = request.body;
-	console.log("post request body", request.body);
-	// hash the password and call model.createUserDB
-	// insert user into db and return the first row of db table (name, email, hash)
-	auth
-		.createUser(name, email, password)
-		// generates sid and calls model.createSession
-		// insert sid and user data into sessions table and returns sid column of sessions table
-		.then(auth.saveUserSession)
-		// set a cookie with the name 'sid' and value of sid and pass cookie options
-		.then((sid) => {
-			response.cookie("sid", sid, auth.COOKIE_OPTIONS);
-			response.redirect("/login");
-		})
-		.catch((error) => {
-			console.error(error);
-			response.send(`<h1>Something went wrong, sorry</h1>`);
-		});
+  // collect user input from request body
+  const { name, email, password } = request.body;
+  console.log("post request body", request.body);
+  // hash the password and call model.createUserDB
+  // insert user into db and return the first row of db table (name, email, hash)
+  auth
+    .createUser(name, email, password)
+    // generates sid and calls model.createSession
+    // insert sid and user data into sessions table and returns sid column of sessions table
+    .then(auth.saveUserSession)
+    // set a cookie with the name 'sid' and value of sid and pass cookie options
+    .then((sid) => {
+      response.cookie("sid", sid, auth.COOKIE_OPTIONS);
+      response.redirect("/login");
+    })
+    .catch((error) => {
+      console.error(error);
+      response.send(`<h1>Something went wrong, sorry</h1>`);
+    });
 }
 
 module.exports = { get, post };
